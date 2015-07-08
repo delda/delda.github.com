@@ -1,1 +1,69 @@
-My first home page on github
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Binary watch configuration</title>
+		<meta name="description" content="Configuration page for BinaryWatch, a Pebble watchface">
+		<meta name="author" content="Davide Dell'Erba <delda@virgilio.it>">
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1>Binary watch configuration</h1>
+			</header>
+
+			<form id="config" role="form" class="input-lg">
+				<fieldset>
+					<legend>Shape:</legend>
+					cerchio <input type="radio" name="shape" value="cerchio" />
+					rettangolo <input type="radio" name="shape" value="rettangolo" />
+					quadrato <input type="radio" name="shape" value="quadrato"/>
+				</fieldset>
+
+				<fieldset>
+					<legend>Color:</legend>
+					white / black<input type="radio" name="color" value="wh-bl" />
+					black /write<input type="radio" name="color" value="bl-wh" />
+				</fieldset>
+
+				<fieldset>
+					<legend>Others:</legend>
+					battery <input type="checkbox" name="battery" value="battery" />
+					bluetooth <input type="checkbox" name="bluetooth" value="bluetooth" />
+					flip phone <input type="checkbox" name="flip_phone" value="flip_phone" />
+				</fieldset>
+
+				<fieldset>
+					<a href="pebblejs://close" class="btn btn-lg btn-default" role="button">Cancel</a>
+					<button type="button" class="btn btn-lg btn-primary" id="b-submit">Save</button>
+				</fieldset>
+			</form>
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+			function saveOptions() {
+				var params = {};
+				$('#config').serializeArray().forEach(function(pair) {
+					params[pair.name] = pair.value;
+				});
+
+				return params;
+			}
+
+			function applyOptions() {
+			}
+
+			function getParam(key) {
+				var val = '';
+				return val;
+			}
+
+			$("#b-submit").click(function() {
+				var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+				document.location = location;
+			});
+
+			applyOptions();
+		</script>
+	</body>
+</html>
