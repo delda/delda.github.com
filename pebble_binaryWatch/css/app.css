@@ -12,4 +12,18 @@ h1{
 }
 .delda_subtitle div{
 	padding-left:1.5em;
+	padding-right:1.5em;
 }
+.delda_option{
+	color: black;
+	font-size:1.1em;
+}
+.delda_suboption{
+	color: #666;
+	font-size:0.9em;
+}
+.delda_shape_circle{
+	background-image:url(img/circle.png);
+}
+select#shape option[value="square"] { background-image:url(img/square.png); }
+
