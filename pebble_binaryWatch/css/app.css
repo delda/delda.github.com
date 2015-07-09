@@ -1,7 +1,15 @@
-.dkgrey{
+.delda_dkgrey{
 	background-color: #444444;
 }
 h1{
 	font-size:1.2em;
 	color: white !important;
+}
+.delda_subtitle{
+	color: #008CBA;
+	font-size:0.9em;
+	padding-top:1em;
+}
+.delda_subtitle div{
+	padding-left:1.5em;
 }
