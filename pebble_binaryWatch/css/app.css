@@ -11,8 +11,7 @@ h1{
 	padding-top:1em;
 }
 .delda_subtitle div{
-	padding-left:1.5em;
-	padding-right:1.5em;
+	padding-left:0.5em;
 }
 .delda_option{
 	color: black;
@@ -22,8 +21,18 @@ h1{
 	color: #666;
 	font-size:0.9em;
 }
-.delda_shape_circle{
-	background-image:url(img/circle.png);
+.delda_shape{
+	background-repeat:no-repeat;
+	background-position:0 50%;
+	padding-left:3rem;
 }
-select#shape option[value="square"] { background-image:url(img/square.png); }
-
+.delda_shape_circle{
+	background-image:url(file:///home/delda/www/delda.github.io/pebble_binaryWatch/img/circle.png);
+}
+.delda_shape_square{
+	background-image:url('file:///home/delda/www/delda.github.io/pebble_binaryWatch/img/square.png');
+}
+option{
+	height:2.3125em;
+	padding:0.4rem;
+}
