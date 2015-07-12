@@ -21,42 +21,65 @@
 				<h1 class="show-for-small-up">Binary watch configuration</h1>
 			</div>
 		</div>
-		<div class="row delda_subtitle">
-			<div class="small-12 columns">
-				Clock design
-			</div>
-		</div>
-		<div class="row delda_subtitle">
-			<div class="small-6 columns">
-				<div class="delda_option">
-					Shapes
-				</div>
-				<div class="delda_suboption">
-					Choose dots shape
+		<form id="config">
+			<div class="row delda_subtitle">
+				<div class="small-12 columns">
+					Clock design
 				</div>
 			</div>
-			<div class="small-6 columns">
-				<select>
-					<option class="delda_shape delda_shape_circle">
-						circle
-					</option>
-					<option class="delda_shape delda_shape_square">
-						square
-					</option>
-				</select>
+			<div class="row delda_subtitle">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Shapes
+					</div>
+					<div class="delda_suboption">
+						Choose dots shape
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<select name="shape">
+						<option value="circle" class="delda_shape delda_shape_circle">
+							circle
+						</option>
+						<option value="square" class="delda_shape delda_shape_square">
+							square
+						</option>
+					</select>
+				</div>
 			</div>
-		</div>
-<!--
-		<div class="row delda_subtitle">
-			<div class="small-12 columns">
-				Optional features
+	<!--
+			<div class="row delda_subtitle">
+				<div class="small-12 columns">
+					Optional features
+				</div>
 			</div>
-		</div>
--->
+	-->
+			<div class="row">
+				<div class="small-12 columns center">
+					<a href="pebblejs://close" class="delda_cancel_link">Cancel</a>
+					<div class="button small" id="b-submit">Save</div>
+				</div>
+			</div>
+		</form>
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
 		<script>
 			$(document).foundation();
+		</script>
+		<script>
+			function saveOptions() {
+				var params = {};
+				$('#config').serializeArray().forEach(function(pair) {
+					params[pair.name] = pair.value;
+				});
+
+				return params;
+			}
+
+			$("#b-submit").click(function() {
+				var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+				document.location = location;
+			});
 		</script>
 	</body>
 </html>
