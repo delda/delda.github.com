@@ -27,10 +27,10 @@ h1{
 	padding-left:3rem;
 }
 .delda_shape_circle{
-	background-image:url(file:///home/delda/www/delda.github.io/pebble_binaryWatch/img/circle.png);
+	background-image:url("http://delda.github.io/pebble_binaryWatch/img/circle.png");
 }
 .delda_shape_square{
-	background-image:url('file:///home/delda/www/delda.github.io/pebble_binaryWatch/img/square.png');
+	background-image:url("http://delda.github.io/pebble_binaryWatch/img/square.png");
 }
 option{
 	height:2.3125em;
@@ -38,8 +38,9 @@ option{
 }
 .delda_cancel_link{
 	color:#666;
-	font-size:0.9em;
+	font-size:0.8em;
 	padding-right:1em;
+	text-decoration: underline;
 }
 .center{
 	text-align:center;
