@@ -39,10 +39,30 @@
 				<div class="small-6 columns">
 					<select name="shape">
 						<option value="1" class="delda_shape delda_shape_circle">
-							circle
+							Circle
 						</option>
 						<option value="2" class="delda_shape delda_shape_square">
-							square
+							Square
+						</option>
+					</select>
+				</div>
+			</div>
+			<div class="row delda_subtitle">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Colors
+					</div>
+					<div class="delda_suboption">
+						Choose your colours combination
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<select name="color">
+						<option value="1" class="delda_shape delda_shape_circle">
+							Ligth
+						</option>
+						<option value="2" class="delda_shape delda_shape_square">
+							Dark
 						</option>
 					</select>
 				</div>
@@ -100,6 +120,8 @@
 				switch(property){
 					case 'shape':
 						$($('[name=shape]').val(value)).prop('selected', true);
+					case 'color':
+						$($('[name=color]').val(value)).prop('selected', true);
 				}
 			}
 
@@ -117,9 +139,6 @@
 </html>
 
 <!---
-Colors
-Choose the color schema
-
 Date
 Show the current date on top of the screen
 
