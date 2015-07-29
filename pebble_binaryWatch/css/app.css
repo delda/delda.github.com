@@ -49,3 +49,17 @@ option{
 	margin-top:2em;
 	display:none;
 }
+.delda_modal_title{
+	background-color: #444;
+	color: white;
+	margin-top: 20px;
+    padding: 10px;
+}
+.delda_modal_version{
+	background-color: #EEE;
+	padding: 10px 0;
+	color: #AAA;
+}
+.delda_modal_text{
+	color: #444;
+}
