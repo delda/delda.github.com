@@ -82,13 +82,27 @@
 					</select>
 				</div>
 			</div>
-	<!--
 			<div class="row delda_subtitle">
 				<div class="small-12 columns">
 					Optional features
 				</div>
 			</div>
-	-->
+			<div class="row delda_subtitle">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Numbers
+					</div>
+					<div class="delda_suboption">
+						Time in decimal format on the background
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<div class="switch small">
+						<input id="numbersCheckbox" type="checkbox" >
+						<label for="numbersCheckbox"></label>
+					</div> 
+				</div>
+			</div>
 			<div class="row">
 				<div class="small-12 columns center">
 					<a href="pebblejs://close" class="delda_cancel_link">Cancel</a>
@@ -270,6 +284,11 @@
 						break;
 					case 'color':
 						$($('[name=color]').val(value)).prop('selected', true);
+						break;
+					case 'numbers':
+						if(value == 1){
+							$('numbersCheckbox').attr('checked', true);
+						}
 						break;
 				}
 			}
