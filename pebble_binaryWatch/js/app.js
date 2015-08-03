@@ -36,6 +36,7 @@ function saveOptions() {
 	$('#config').serializeArray().forEach(function(pair) {
 		params[pair.name] = pair.value;
 	});
+	params['number'] = params['number'] ? 1 : 0;
 
 	return params;
 }
