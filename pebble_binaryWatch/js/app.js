@@ -1,4 +1,4 @@
-var version = '2.4';
+var version = '2.5';
 
 $(document).foundation();
 
