@@ -8,6 +8,18 @@ $(document).ready(function(){
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
 	}
+	console.log('delda_version');
+    $(".delda_version").each(function(index){ 
+        console.log( index + ": " + $(this).attr('class'));
+		var version = $(this).attr('class').match(/v[0-9]\.[0-9]/);
+		console.log(version);
+		if(version != null){
+			console.log('yes');
+			var tmp = $('.'+version[0].replace(/\./,'\\.'));
+			console.log(tmp);
+			tmp.hide();
+		}
+    });
 });
 
 function queryString(){
