@@ -1,9 +1,9 @@
-var version = '2.5';
+var lastVersion = '2.5';
 
 $(document).foundation();
 
 $(document).ready(function(){
-	$('h1 .right').text("v"+version);
+	$('h1 .right').text("v"+lastVersion);
 	getProps = queryString();
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
@@ -12,8 +12,7 @@ $(document).ready(function(){
     $(".delda_version").each(function(index){ 
         console.log( index + ": " + $(this).attr('class'));
 		var version = $(this).attr('class').match(/v[0-9]\.[0-9]/);
-		console.log(version);
-		if(version != null){
+		if(parseInt(version[0]) < parseInt(lastVersion)){
 			console.log('yes');
 			var tmp = $('.'+version[0].replace(/\./,'\\.'));
 			console.log(tmp);
@@ -56,7 +55,7 @@ function saveOptions() {
 function setProperty(property, value){
 	switch(property){
 		case 'version':
-			if(version !== value){
+			if(lastVersion !== value){
 				$('#version_alert').show();
 			}
 			break;
