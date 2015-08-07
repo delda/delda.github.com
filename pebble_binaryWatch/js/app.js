@@ -3,7 +3,10 @@ var version = '2.5';
 $(document).foundation();
 
 $(document).ready(function(){
-	$('h1 .right').text("v"+version);
+	$('h1 .right #linkVersionInformation').text("v"+version);
+	$('[class^="delda_version_"]').each(function(index){
+		console.log(index + ": " + $(this).text());
+	});
 	getProps = queryString();
 	for(var test in getProps){
 		setProperty(test, getProps[test]);

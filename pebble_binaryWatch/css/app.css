@@ -70,3 +70,7 @@ option{
 	font-size:0.6em;
 	line-height:3em;
 }
+.delda_version a,
+.delda_version a:hover {
+	color: white;
+}
