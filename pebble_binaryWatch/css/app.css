@@ -22,17 +22,6 @@ h1{
 	color: #666;
 	font-size:0.9em;
 }
-.delda_shape{
-	background-repeat:no-repeat;
-	background-position:0 50%;
-	padding-left:3rem;
-}
-.delda_shape_circle{
-	background-image:url("http://delda.github.io/pebble_binaryWatch/img/circle.png");
-}
-.delda_shape_square{
-	background-image:url("http://delda.github.io/pebble_binaryWatch/img/square.png");
-}
 option{
 	height:2.3125em;
 	padding:0.4rem;
@@ -66,11 +55,11 @@ option{
 	color: #444;
 	font-size:0.8em;
 }
-.delda_version{
+.delda_version_header{
 	font-size:0.6em;
 	line-height:3em;
 }
-.delda_version a,
-.delda_version a:hover {
+.delda_version_header a,
+.delda_version_header a:hover {
 	color: white;
 }

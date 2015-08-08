@@ -1,26 +1,25 @@
-var version = '2.5';
+var currentVersion = '2.5';
+var phoneVersion = '';
 
 $(document).foundation();
 
 $(document).ready(function(){
-	$('h1 .right #linkVersionInformation').text("v"+version);
-	$('[class^="delda_version_"]').each(function(index){
-		console.log(index + ": " + $(this).text());
-	});
+	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
 	getProps = queryString();
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
 	}
 	console.log('delda_version');
+	console.log
     $(".delda_version").each(function(index){ 
         console.log( index + ": " + $(this).attr('class'));
-		var version = $(this).attr('class').match(/v[0-9]\.[0-9]/);
+		var version = $(this).attr('class').match(/v([0-9]\.[0-9])/);
 		console.log(version);
-		if(version != null){
+		console.log(parseFloat(version[1]) + ' > ' + parseFloat(phoneVersion));
+		if(version && parseFloat(version[1]) > parseFloat(phoneVersion)){
 			console.log('yes');
-			var tmp = $('.'+version[0].replace(/\./,'\\.'));
-			console.log(tmp);
-			tmp.hide();
+			console.log($(this));
+			$(this).hide();
 		}
     });
 });
@@ -59,7 +58,8 @@ function saveOptions() {
 function setProperty(property, value){
 	switch(property){
 		case 'version':
-			if(version !== value){
+			phoneVersion = value;
+			if(currentVersion !== value){
 				$('#version_alert').show();
 			}
 			break;
