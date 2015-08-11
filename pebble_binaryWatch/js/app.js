@@ -1,4 +1,4 @@
-var currentVersion = '2.5';
+var currentVersion = '2.6';
 var phoneVersion = '';
 
 $(document).foundation();
@@ -59,7 +59,7 @@ function setProperty(property, value){
 	switch(property){
 		case 'version':
 			phoneVersion = value;
-			if(currentVersion !== value){
+			if(parseFloat(currentVersion) > parseFloat(value)){
 				$('#version_alert').show();
 			}
 			break;
