@@ -1,10 +1,17 @@
-.delda_dkgrey{
-	background-color: #444444;
-	padding: 1em 0;
-}
 h1{
 	font-size:1.2em;
 	color: white !important;
+}
+option{
+	height:2.3125em;
+	padding:0.4rem;
+}
+.button{
+	margin: 0 0 0.25rem;
+}
+.delda_dkgrey{
+	background-color: #444444;
+	padding: 1em 0;
 }
 .delda_subtitle{
 	color: #008CBA;
@@ -21,10 +28,6 @@ h1{
 .delda_suboption{
 	color: #666;
 	font-size:0.9em;
-}
-option{
-	height:2.3125em;
-	padding:0.4rem;
 }
 .delda_cancel_link{
 	color:#666;
@@ -62,4 +65,11 @@ option{
 .delda_version_header a,
 .delda_version_header a:hover {
 	color: white;
+}
+.delda_radio{
+	background-color: #008cba;
+	color: white;
+}
+.delda_hover{
+	background-color:#007095;
 }
