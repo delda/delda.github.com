@@ -73,3 +73,6 @@ option{
 .delda_hover{
 	background-color:#007095;
 }
+.delda_limit{
+	padding:10px 5px !important;
+}
