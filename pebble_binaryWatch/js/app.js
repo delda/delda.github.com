@@ -1,5 +1,5 @@
-var currentVersion = '2.6';
-var phoneVersion = '2.7';
+var currentVersion = '2.7';
+var phoneVersion = currentVersion;
 
 $(document).foundation();
 
