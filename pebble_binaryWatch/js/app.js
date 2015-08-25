@@ -1,22 +1,25 @@
-var lastVersion = '2.5';
+var currentVersion = '2.7';
+var phoneVersion = currentVersion;
 
 $(document).foundation();
 
 $(document).ready(function(){
-	$('h1 .right').text("v"+lastVersion);
+	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
 	getProps = queryString();
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
 	}
 	console.log('delda_version');
+	console.log
     $(".delda_version").each(function(index){ 
         console.log( index + ": " + $(this).attr('class'));
-		var version = $(this).attr('class').match(/v[0-9]\.[0-9]/);
-		if(parseInt(version[0]) < parseInt(lastVersion)){
+		var version = $(this).attr('class').match(/v([0-9]\.[0-9])/);
+		console.log(version);
+		console.log(parseFloat(version[1]) + ' > ' + parseFloat(phoneVersion));
+		if(version && parseFloat(version[1]) > parseFloat(phoneVersion)){
 			console.log('yes');
-			var tmp = $('.'+version[0].replace(/\./,'\\.'));
-			console.log(tmp);
-			tmp.hide();
+			console.log($(this));
+			$(this).hide();
 		}
     });
 });
@@ -47,7 +50,7 @@ function saveOptions() {
 	$('#config').serializeArray().forEach(function(pair) {
 		params[pair.name] = pair.value;
 	});
-	params['number'] = params['number'] ? 1 : 0;
+	params['number'] = params['number'] ? '1' : '0';
 
 	return params;
 }
@@ -55,13 +58,17 @@ function saveOptions() {
 function setProperty(property, value){
 	switch(property){
 		case 'version':
-			if(lastVersion !== value){
+			phoneVersion = value;
+			if(parseFloat(currentVersion) > parseFloat(value)){
 				$('#version_alert').show();
 			}
 			break;
 		case 'platform':
+			console.log(value);
 			platform = (value > 1 || value < 0) ? 1 : value;
-			platform = (platform == 0) ? 'aplite' : 'basalt';
+			console.log(platform);
+			platform = (platform == 1) ? 'aplite' : 'basalt';
+			console.log(platform);
 			$('[name=color] .delda_'+platform).remove();
 			break;
 		case 'shape':
@@ -75,10 +82,25 @@ function setProperty(property, value){
 				$('#numbersCheckbox').attr('checked', true);
 			}
 			break;
+		case 'bluetooth':
+			console.log('bluetooth');
+			console.log(value);
+			console.log($('.bluetooth'+value));
+			$('#bluetooth'+value).toggleClass('delda_hover');
+			$('#bluetooth').val(value);
+			break;
 	}
 }
 
-$("#b-submit").click(function() {
+$('.bluetooth').click(function(){
+	console.log("eccomi");
+	$('.delda_hover').removeClass('delda_hover');
+	$(this).toggleClass('delda_hover');
+	var value = parseInt($(this).attr('id').replace('bluetooth', ''));
+	$('#bluetooth').val(value);
+});
+
+$('#b-submit').click(function(){
 	var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
 	document.location = location;
 });

@@ -20,7 +20,9 @@
 			<div class="small-12 columns">
 				<h1 class="show-for-small-up">
 					<div class="left">Binary Watch configuration</div>
-					<div class="delda_version right"></div>
+					<div class="delda_version_header right">
+						<a href="#" id="linkVersionInformation" data-reveal-id="versionInformation"></a>
+					</div>
 				</h1>
 			</div>
 		</div>
@@ -54,7 +56,7 @@
 						<option value="0" class="delda_shape delda_shape_circle">
 							Circle
 						</option>
-						<option value="1" class="delda_shape delda_shape_square">
+						<option value="1" class="delda_shape delda_shape_square delda_version v2.2">
 							Square
 						</option>
 					</select>
@@ -71,17 +73,29 @@
 				</div>
 				<div class="small-6 columns">
 					<select name="color">
-						<option value="0" class="delda_shape delda_shape_circle">
+						<option value="0" class="delda_shape ">
 							Ligth
 						</option>
-						<option value="1" class="delda_shape delda_shape_square">
+						<option value="1" class="delda_shape delda_version v2.2">
 							Dark
 						</option>
-						<option value="2" class="delda_shape delda_aplite delda_version v2.4">
-							Ligth
+						<option value="2" class="delda_shape delda_basalt delda_version v2.6">
+							Sky
 						</option>
-						<option value="3" class="delda_shape delda_aplite delda_version v2.4">
-							Dark
+						<option value="3" class="delda_shape delda_basalt delda_version v2.6">
+							Deap Blue
+						</option>
+						<option value="4" class="delda_shape delda_basalt delda_version v2.6">
+							Love
+						</option>
+						<option value="5" class="delda_shape delda_basalt delda_version v2.6">
+							Passion
+						</option>
+						<option value="6" class="delda_shape delda_basalt delda_version v2.6">
+							Hope
+						</option>
+						<option value="7" class="delda_shape delda_basalt delda_version v2.6">
+							Freedom
 						</option>
 					</select>
 				</div>
@@ -108,6 +122,24 @@
 					</div> 
 				</div>
 			</div>
+			<div class="row delda_subtitle delda_version v2.7">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Bluetooth icon
+					</div>
+					<div class="delda_suboption">
+						You can see the bluetooth icon in different modality
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<input id="bluetooth" type="hidden" name="bluetooth" value="" />
+					<ul class="button-group expand round">
+						<li><a id="bluetooth0" class="button tiny bluetooth delda_limit">Never</a></li>
+						<li><a id="bluetooth1" class="button tiny bluetooth delda_limit">Disconnect</a></li>
+						<li><a id="bluetooth2" class="button tiny bluetooth delda_limit">Always</a></li>
+					</ul>
+				</div>
+			</div>
 			<div class="row delda_subtitle"> </div>
 			<div class="row">
 				<div class="small-12 columns center">
@@ -121,6 +153,40 @@
 			<div class="row">
 				<div class="small-12 columns delda_modal_title">
 					Binary Watch changelog
+				</div>
+			</div>
+				<!-- VERSION 2.7 -->
+			<div class="row delda_modal_version">
+				<div class="small-12 columns">
+					<div class="left">
+						VERSION 2.7
+					</div>
+					<div class="right">
+						AUG 19, 2015
+					</div>
+				</div>
+			</div>
+			<div class="row delda_modal_text">
+				<div class="small-12 columns">
+					v2.7</br>
+					* Bluetooth connection notification
+				</div>
+			</div>
+				<!-- VERSION 2.6 -->
+			<div class="row delda_modal_version">
+				<div class="small-12 columns">
+					<div class="left">
+						VERSION 2.6
+					</div>
+					<div class="right">
+						AUG 12, 2015
+					</div>
+				</div>
+			</div>
+			<div class="row delda_modal_text">
+				<div class="small-12 columns">
+					v2.6</br>
+					* Added six different patterns color
 				</div>
 			</div>
 				<!-- VERSION 2.5 -->
@@ -254,15 +320,6 @@
 <!---
 Date
 Show the current date on top of the screen
-
-Background time
-Show the time in background
-
-Battery
-You can see battery icon never, on change or always
-
-Bluetooth
-You can see bluetooth icon status never, on disconnect or always
 
 Flip phone
 ???
