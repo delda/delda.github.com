@@ -76,6 +76,10 @@ function setProperty(property, value){
 			$('#bluetooth'+value).toggleClass('delda_hover');
 			$('#bluetooth').val(value);
 			break;
+		case 'battery':
+			$('#battery'+value).toggleClass('delda_hover');
+			$('#battery').val(value);
+			break;
 	}
 }
 
