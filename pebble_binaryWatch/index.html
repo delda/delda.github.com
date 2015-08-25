@@ -140,6 +140,47 @@
 					</ul>
 				</div>
 			</div>
+			<div class="row delda_subtitle delda_version v2.8"> </div>
+			<div class="row delda_subtitle delda_version v2.8">
+				<div class="small-12 columns">
+					Battery
+				</div>
+			</div>
+			<div class="row delda_subtitle delda_version v2.8">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Icon
+					</div>
+					<div class="delda_suboption">
+						You can see the battery icon never, always or only under 20% of change
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<input id="battery" type="hidden" name="battery" value="" />
+					<ul class="button-group expand round">
+						<li><a id="battery0" class="button tiny battery delda_limit">Never</a></li>
+						<li><a id="battery1" class="button tiny battery delda_limit">Under 20%</a></li>
+						<li><a id="battery2" class="button tiny battery delda_limit">Always</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row delda_subtitle delda_version v2.8"> </div>
+			<div class="row delda_subtitle delda_version v2.8">
+				<div class="small-6 columns">
+					<div class="delda_option">
+						Level
+					</div>
+					<div class="delda_suboption">
+						Shows the battery level in graphic modality or in numeric percent
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<div class="switch small">
+						<input id="batteryCheckbox" type="checkbox" name="battery_modality" >
+						<label for="batteryCheckbox"></label>
+					</div> 
+				</div>
+			</div>
 			<div class="row delda_subtitle"> </div>
 			<div class="row">
 				<div class="small-12 columns center">
@@ -320,6 +361,9 @@
 <!---
 Date
 Show the current date on top of the screen
+
+Battery 
+Shows the battery level in graphic modality or in numeric percent
 
 Flip phone
 ???
