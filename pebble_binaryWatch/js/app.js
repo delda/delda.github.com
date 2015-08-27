@@ -44,6 +44,7 @@ function saveOptions() {
 		params[pair.name] = pair.value;
 	});
 	params['number'] = params['number'] ? '1' : '0';
+	params['battery_modality'] = params['battery_modality'] ? '1' : '0';
 
 	return params;
 }
@@ -79,6 +80,11 @@ function setProperty(property, value){
 		case 'battery':
 			$('#battery'+value).toggleClass('delda_hover');
 			$('#battery').val(value);
+			break;
+		case 'battery_modality':
+			if(value == 1){
+				$('#batteryCheckbox').attr('checked', true);
+			}
 			break;
 	}
 }
