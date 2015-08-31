@@ -1,4 +1,4 @@
-var currentVersion = '2.7';
+var currentVersion = '2.8';
 var phoneVersion = currentVersion;
 
 $(document).foundation();
