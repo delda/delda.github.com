@@ -24,7 +24,7 @@ $(document).ready(function(){
 	// Add content in date select
 	moment.locale(localeFormat);
 	var today = new Date();
-	var count = 0;
+	var count = 1;
 	dateListing = $('[name=date]');
 	for(date of dateFormat){
 		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
