@@ -1,5 +1,6 @@
 var currentVersion = '2.8';
 var phoneVersion = currentVersion;
+var localeFormat = 'en';
 var dateFormat = [
 	'%d-%m-%y',  // DD-MM-YY
 	'%d.%m.%y',  // DD.MM.YY
@@ -26,6 +27,9 @@ var dateFormat = [
 	'%B %d, %Y', // MMMM DD, YYYY
 	'%B-%d-%Y',  // MMMM-DD-YY
 ];
+var dateFormat = [
+	'l', 'L', 'll', 'LL', 'lll', 'LLL', 'llll', 'LLLL'
+];
 
 $(document).foundation();
 
@@ -46,11 +50,12 @@ $(document).ready(function(){
     });
 
 	// Add content in date select
+	moment().locale(localeFormat);
 	var today = new Date();
 	var count = 0;
 	dateListing = $('[name=date]');
 	for(date of dateFormat){
-		dateListing.append('<option class="delda_shape" value="'+count+'">'+today.toLocaleFormat(date)+'</option>');
+		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
 		count++;
 	}
 });
@@ -123,6 +128,9 @@ function setProperty(property, value){
 			if(value == 1){
 				$('#batteryCheckbox').attr('checked', true);
 			}
+			break;
+		case 'locale':
+			localeFormat = value;
 			break;
 	}
 }
