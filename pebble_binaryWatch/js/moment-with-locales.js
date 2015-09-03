@@ -2620,7 +2620,7 @@
         LT   : 'h:mm A',
         L    : 'MM/DD/YYYY',
         LL   : 'MMMM D, YYYY',
-        LLL  : 'MMMM D, YYYY h:mm A',
+        LLL  : 'MMMM D, YYYY',
         LLLL : 'dddd, MMMM D, YYYY'
     };
 
@@ -3717,7 +3717,7 @@
             LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY г.',
-            LLL : 'D MMMM YYYY г.,',
+            LLL : 'D MMMM YYYY г.',
             LLLL : 'dddd, D MMMM YYYY г.'
         },
         calendar : {
@@ -4132,8 +4132,8 @@
             LTS : 'h[e]mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D [a viz] MMMM YYYY',
-            LLL : 'D [a viz] MMMM YYYY h[e]mm A',
-            LLLL : 'dddd, D [a viz] MMMM YYYY h[e]mm A'
+            LLL : 'D [a viz] MMMM YYYY',
+            LLLL : 'dddd, D [a viz] MMMM YYYY'
         },
         calendar : {
             sameDay : '[Hiziv da] LT',
@@ -4528,7 +4528,7 @@
             LTS : 'HH:mm:ss',
             L : 'DD-MM-YYYY',
             LL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ]',
-            LLL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ],',
+            LLL : 'YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ]',
             LLLL : 'dddd, YYYY [ҫулхи] MMMM [уйӑхӗн] D[-мӗшӗ]'
         },
         calendar : {
@@ -4845,7 +4845,7 @@
             LTS : 'h:mm:ss A',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY h:mm A',
+            LLL : 'D MMMM YYYY',
             LLLL : 'dddd, D MMMM YYYY'
         },
         calendarEl : {
@@ -9098,7 +9098,7 @@
             LTS : 'HH:mm:ss',
             L : 'DD/MM/YYYY',
             LL : 'D MMMM YYYY',
-            LLL : 'D MMMM YYYY,',
+            LLL : 'D MMMM YYYY',
             LLLL : 'dddd, D MMMM YYYY'
         },
         calendar : {
@@ -9367,7 +9367,7 @@
             LTS : 'LT.ss',
             L : 'DD.MM.YYYY',
             LL : 'D. MMMM [dallas] YYYY',
-            LLL : 'D. MMMM [dallas] YYYY LT',
+            LLL : 'D. MMMM [dallas] YYYY',
             LLLL : 'dddd, [li] D. MMMM [dallas] YYYY'
         },
         meridiem : function (hours, minutes, isLower) {
@@ -9586,7 +9586,7 @@
             LTS : 'HH:mm:ss',
             L : 'DD.MM.YYYY',
             LL : 'D MMMM YYYY р.',
-            LLL : 'D MMMM YYYY р.,',
+            LLL : 'D MMMM YYYY р.',
             LLLL : 'dddd, D MMMM YYYY р.'
         },
         calendar : {
@@ -9779,7 +9779,7 @@
             LTS : 'Ah点m分s秒',
             L : 'YYYY-MM-DD',
             LL : 'YYYY年MMMD日',
-            LLL : 'YYYY年MMMD日A',
+            LLL : 'YYYY年MMMD日',
             LLLL : 'YYYY年MMMD日dddd',
             l : 'YYYY-MM-DD',
             ll : 'YYYY年MMMD日',

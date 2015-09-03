@@ -1,35 +1,7 @@
 var currentVersion = '2.8';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
-var dateFormat = [
-	'%d-%m-%y',  // DD-MM-YY
-	'%d.%m.%y',  // DD.MM.YY
-	'%d/%m/%y',  // DD-MM-YY
-	'%d %m %y',  // DD MM YY
-	'%d-%m-%Y',  // DD-MM-YYYY
-	'%d.%m.%Y',  // DD.MM.YYYY
-	'%d/%m/%Y',  // DD/MM/YYYY
-	'%d %m %Y',  // DD MM YYYY
-	'%m-%d-%Y',  // MM-DD-YYYY
-	'%m.%d.%Y',  // MM.DD.YYYY
-	'%m/%d/%Y',  // MM/DD/YYYY
-	'%m %d %Y',  // MM DD YYYY
-	'%Y-%m-%d',  // YYYY-MM-DD
-	'%Y.%m.%d',  // YYYY.MM.DD
-	'%Y/%m/%d',  // YYYY/MM/DD
-	'%Y %m %d',  // YYYY MM DD
-	'%b/%d/%Y',  // MMM/DD/YYYY
-	'%b %e, %Y', // MMM D, YYYY
-	'%d %b %Y',  // DD MMM YYYY
-	'%d %b, %Y', // DD MMM, YYYY
-	'%e $B %Y',  // D MMMM YYYY
-	'%d %B %Y',  // DD MMMM YYYY
-	'%B %d, %Y', // MMMM DD, YYYY
-	'%B-%d-%Y',  // MMMM-DD-YY
-];
-var dateFormat = [
-	'l', 'L', 'll', 'LL', 'lll', 'LLL', 'llll', 'LLLL'
-];
+var dateFormat = ['l', 'L', 'll', 'LL', 'llll', 'LLLL'];
 
 $(document).foundation();
 
@@ -50,7 +22,7 @@ $(document).ready(function(){
     });
 
 	// Add content in date select
-	moment().locale(localeFormat);
+	moment.locale(localeFormat);
 	var today = new Date();
 	var count = 0;
 	dateListing = $('[name=date]');
