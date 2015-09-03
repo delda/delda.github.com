@@ -1,20 +1,63 @@
 var currentVersion = '2.8';
 var phoneVersion = currentVersion;
+var localeFormat = 'en';
+var dateFormat = [
+	'%d-%m-%y',  // DD-MM-YY
+	'%d.%m.%y',  // DD.MM.YY
+	'%d/%m/%y',  // DD-MM-YY
+	'%d %m %y',  // DD MM YY
+	'%d-%m-%Y',  // DD-MM-YYYY
+	'%d.%m.%Y',  // DD.MM.YYYY
+	'%d/%m/%Y',  // DD/MM/YYYY
+	'%d %m %Y',  // DD MM YYYY
+	'%m-%d-%Y',  // MM-DD-YYYY
+	'%m.%d.%Y',  // MM.DD.YYYY
+	'%m/%d/%Y',  // MM/DD/YYYY
+	'%m %d %Y',  // MM DD YYYY
+	'%Y-%m-%d',  // YYYY-MM-DD
+	'%Y.%m.%d',  // YYYY.MM.DD
+	'%Y/%m/%d',  // YYYY/MM/DD
+	'%Y %m %d',  // YYYY MM DD
+	'%b/%d/%Y',  // MMM/DD/YYYY
+	'%b %e, %Y', // MMM D, YYYY
+	'%d %b %Y',  // DD MMM YYYY
+	'%d %b, %Y', // DD MMM, YYYY
+	'%e $B %Y',  // D MMMM YYYY
+	'%d %B %Y',  // DD MMMM YYYY
+	'%B %d, %Y', // MMMM DD, YYYY
+	'%B-%d-%Y',  // MMMM-DD-YY
+];
+var dateFormat = [
+	'l', 'L', 'll', 'LL', 'lll', 'LLL', 'llll', 'LLLL'
+];
 
 $(document).foundation();
 
 $(document).ready(function(){
+	// Version controll sign
 	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
 	getProps = queryString();
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
 	}
+
+	// Hidden the part of code with lower version control
     $(".delda_version").each(function(index){ 
 		var version = $(this).attr('class').match(/v([0-9]\.[0-9])/);
 		if(version && parseFloat(version[1]) > parseFloat(phoneVersion)){
 			$(this).hide();
 		}
     });
+
+	// Add content in date select
+	moment().locale(localeFormat);
+	var today = new Date();
+	var count = 0;
+	dateListing = $('[name=date]');
+	for(date of dateFormat){
+		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
+		count++;
+	}
 });
 
 function queryString(){
@@ -44,6 +87,7 @@ function saveOptions() {
 		params[pair.name] = pair.value;
 	});
 	params['number'] = params['number'] ? '1' : '0';
+	params['battery_modality'] = params['battery_modality'] ? '1' : '0';
 
 	return params;
 }
@@ -79,6 +123,14 @@ function setProperty(property, value){
 		case 'battery':
 			$('#battery'+value).toggleClass('delda_hover');
 			$('#battery').val(value);
+			break;
+		case 'battery_modality':
+			if(value == 1){
+				$('#batteryCheckbox').attr('checked', true);
+			}
+			break;
+		case 'locale':
+			localeFormat = value;
 			break;
 	}
 }
