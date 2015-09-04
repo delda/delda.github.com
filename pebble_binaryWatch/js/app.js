@@ -1,7 +1,44 @@
 var currentVersion = '2.8';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
-var dateFormat = ['l', 'L', 'll', 'LL', 'llll', 'LLLL'];
+var dateFormat = [
+	'DD-MM-YY',            // DD-MM-YY
+	'DD.MM.YY',            // DD.MM.YY
+	'DD/MM/YY',            // DD-MM-YY
+	'DD MM YY',            // DD MM YY
+	'DD-MM-YYYY',          // DD-MM-YYYY
+	'DD.MM.YYYY',          // DD.MM.YYYY
+	'DD/MM/YYYY',          // DD/MM/YYYY
+	'DD MM YYYY',          // DD MM YYYY
+	'MM-DD-YYYY',          // MM-DD-YYYY
+	'MM.DD.YYYY',          // MM.DD.YYYY
+	'MM/DD/YYYY',          // MM/DD/YYYY
+	'MM DD YYYY',          // MM DD YYYY
+	'YYYY-MM-DD',          // YYYY-MM-DD
+	'YYYY.MM.DD',          // YYYY.MM.DD
+	'YYYY/MM/DD',          // YYYY/MM/DD
+	'YYYY MM DD',          // YYYY MM DD
+	'MMM/DD/YYYY',         // MMM/DD/YYYY
+	'MMM D, YYYY',         // MMM D, YYYY
+	'DD MMM YYYY',         // DD MMM YYYY
+	'DD MMM, YYYY',        // DD MMM, YYYY
+	'ddd, MMM/DD/YYYY',    // MMM/DD/YYYY
+	'ddd, MMM D, YYYY',    // MMM D, YYYY
+	'ddd, DD MMM YYYY',    // DD MMM YYYY
+	'ddd, DD MMM, YYYY',   // DD MMM, YYYY
+	'D MMMM YYYY',         // D MMMM YYYY
+	'DD MMMM YYYY',        // DD MMMM YYYY
+	'MMMM DD, YYYY',       // MMMM DD, YYYY
+	'MMMM-DD-YYYY',        // MMMM-DD-YY
+	'ddd, D MMMM YYYY',    // D MMMM YYYY
+	'ddd, DD MMMM YYYY',   // DD MMMM YYYY
+	'ddd, MMMM DD, YYYY',  // MMMM DD, YYYY
+	'ddd, MMMM-DD-YYYY',   // MMMM-DD-YY
+	'dddd, D MMMM YYYY',   // D MMMM YYYY
+	'dddd, DD MMMM YYYY',  // DD MMMM YYYY
+	'dddd, MMMM DD, YYYY', // MMMM DD, YYYY
+	'dddd, MMMM-DD-YYYY',  // MMMM-DD-YY
+];
 
 $(document).foundation();
 
