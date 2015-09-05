@@ -43,6 +43,16 @@ var dateFormat = [
 $(document).foundation();
 
 $(document).ready(function(){
+	// Add content in date select
+	moment.locale(localeFormat);
+	var today = new Date();
+	var count = 1;
+	dateListing = $('[name=date]');
+	for(date of dateFormat){
+		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
+		count++;
+	}
+
 	// Version controll sign
 	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
 	getProps = queryString();
@@ -57,16 +67,6 @@ $(document).ready(function(){
 			$(this).hide();
 		}
     });
-
-	// Add content in date select
-	moment.locale(localeFormat);
-	var today = new Date();
-	var count = 1;
-	dateListing = $('[name=date]');
-	for(date of dateFormat){
-		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
-		count++;
-	}
 });
 
 function queryString(){
@@ -140,6 +140,10 @@ function setProperty(property, value){
 			break;
 		case 'locale':
 			localeFormat = value;
+			break;
+		case 'date':
+			console.log($('select[name=date] option:eq('+value+')'));
+			$('select[name=date] option:eq('+value+')').prop('selected', true);
 			break;
 	}
 }
