@@ -1,4 +1,4 @@
-var currentVersion = '2.8';
+var currentVersion = '2.9';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
 var dateFormat = [
