@@ -1,4 +1,4 @@
-var currentVersion = '2.9';
+var currentVersion = '2.10';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
 var dateFormat = [
@@ -43,15 +43,6 @@ var dateFormat = [
 $(document).foundation();
 
 $(document).ready(function(){
-	// Add content in date select
-	moment.locale(localeFormat);
-	var today = new Date();
-	var count = 1;
-	dateListing = $('[name=date]');
-	for(date of dateFormat){
-		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
-		count++;
-	}
 
 	// Version controll sign
 	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
@@ -61,12 +52,25 @@ $(document).ready(function(){
 	}
 
 	// Hidden the part of code with lower version control
+	var appVersion = phoneVersion.match(/([0-9]\.[0-9]{1,2})/);
     $(".delda_version").each(function(index){ 
-		var version = $(this).attr('class').match(/v([0-9]\.[0-9])/);
-		if(version && parseFloat(version[1]) > parseFloat(phoneVersion)){
+		var elementVersion = $(this).attr('class').match(/v([0-9]\.[0-9]{1,2})/);
+		console.log($(this));
+		console.log('version compare ' + elementVersion[1] + ' vs ' + appVersion[1] + ': ' + versionCompare(elementVersion[1], appVersion[1]));
+		if(versionCompare(elementVersion[1], appVersion[1]) > 0){
 			$(this).hide();
 		}
     });
+
+	// Add content in date select
+	moment.locale(localeFormat);
+	var today = new Date();
+	var count = 1;
+	dateListing = $('[name=date]');
+	for(date of dateFormat){
+		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
+		count++;
+	}
 });
 
 function queryString(){
@@ -105,7 +109,7 @@ function setProperty(property, value){
 	switch(property){
 		case 'version':
 			phoneVersion = value;
-			if(parseFloat(currentVersion) > parseFloat(value)){
+			if(versionCompare(value, currentVersion) < 0){
 				$('#version_alert').show();
 			}
 			break;
@@ -142,9 +146,25 @@ function setProperty(property, value){
 			localeFormat = value;
 			break;
 		case 'date':
-			console.log($('select[name=date] option:eq('+value+')'));
 			$('select[name=date] option:eq('+value+')').prop('selected', true);
 			break;
+	}
+}
+
+function versionCompare(version1, version2){
+	var v1 = version1.match(/([0-9])\.([0-9]{1,2})/);
+	var v2 = version2.match(/([0-9])\.([0-9]{1,2})/);
+	if(parseInt(v1[1]) > parseInt(v2[1])){
+		return 1;
+	}else if(parseInt(v1[1]) < parseInt(v2[1])){
+		return -1;
+	}else{
+		if(parseInt(v1[2]) > parseInt(v2[2])){
+			return 1;
+		}else if(parseInt(v1[2]) < parseInt(v2[2])){
+			return -1;
+		}
+		return 0;
 	}
 }
 
