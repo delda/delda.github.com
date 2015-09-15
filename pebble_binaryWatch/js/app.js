@@ -66,9 +66,15 @@ $(document).ready(function(){
 	moment.locale(localeFormat);
 	var today = new Date();
 	var count = 1;
+	var strint2Append = '';
 	dateListing = $('[name=date]');
 	for(date of dateFormat){
-		dateListing.append('<option class="delda_shape" value="'+count+'">'+moment().format(date)+'</option>');
+		string2Append = '<option class="delda_shape" value="'+count+'"';
+		if(count == dateSelected){
+			string2Append += ' selected="selected"';
+		}
+		string2Append += '>'+moment().format(date)+'</option>';
+		dateListing.append(string2Append);
 		count++;
 	}
 });
@@ -146,7 +152,7 @@ function setProperty(property, value){
 			localeFormat = value;
 			break;
 		case 'date':
-			$('select[name=date] option:eq('+value+')').prop('selected', true);
+			dateSelected = value;
 			break;
 	}
 }
