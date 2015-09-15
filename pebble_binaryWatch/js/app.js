@@ -104,7 +104,6 @@ function saveOptions() {
 		params[pair.name] = pair.value;
 	});
 	params['number'] = params['number'] ? '1' : '0';
-	params['battery_modality'] = params['battery_modality'] ? '1' : '0';
 
 	return params;
 }
