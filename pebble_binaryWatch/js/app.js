@@ -55,8 +55,6 @@ $(document).ready(function(){
 	var appVersion = phoneVersion.match(/([0-9]\.[0-9]{1,2})/);
     $(".delda_version").each(function(index){ 
 		var elementVersion = $(this).attr('class').match(/v([0-9]\.[0-9]{1,2})/);
-		console.log($(this));
-		console.log('version compare ' + elementVersion[1] + ' vs ' + appVersion[1] + ': ' + versionCompare(elementVersion[1], appVersion[1]));
 		if(versionCompare(elementVersion[1], appVersion[1]) > 0){
 			$(this).hide();
 		}
@@ -144,9 +142,8 @@ function setProperty(property, value){
 			$('#battery').val(value);
 			break;
 		case 'battery_modality':
-			if(value == 1){
-				$('#batteryCheckbox').attr('checked', true);
-			}
+			$('#battery_modality'+value).toggleClass('delda_hover');
+			$('#battery_modality').val(value);
 			break;
 		case 'locale':
 			localeFormat = value;
@@ -174,8 +171,8 @@ function versionCompare(version1, version2){
 	}
 }
 
-$('.bluetooth,.battery').click(function(){
-	var currentId = $(this).attr('id').match('[a-z]+');
+$('.bluetooth,.battery,.battery_modality').click(function(){
+	var currentId = $(this).attr('id').match('[a-z_]+');
 	$('.'+currentId+'.delda_hover').removeClass('delda_hover');
 	$(this).toggleClass('delda_hover');
 	var value = parseInt($(this).attr('id').replace(currentId, ''));
