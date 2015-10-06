@@ -76,3 +76,18 @@ option{
 .delda_limit{
 	padding:10px 5px !important;
 }
+.delda_under_controll{
+	height: 3rem;
+}
+.delda_over_controll{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+	left: 0;
+	background-color: #444;
+}
+.delda_mega_size{
+	width: 90%;
+	height: 90%;
+	margin-top: 0.25rem; 
+}
