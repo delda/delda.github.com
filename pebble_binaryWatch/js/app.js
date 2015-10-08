@@ -104,6 +104,7 @@ function saveOptions() {
 		params[pair.name] = pair.value;
 	});
 	params['number'] = params['number'] ? '1' : '0';
+	params['help_num'] = params['help_num'] ? '1' : '0';
 
 	return params;
 }
@@ -149,6 +150,11 @@ function setProperty(property, value){
 			break;
 		case 'date':
 			dateSelected = value;
+			break;
+		case 'help_num':
+			if(value == 1){
+				$('#help_numCheckbox').attr('checked', true);
+			}
 			break;
 	}
 }
