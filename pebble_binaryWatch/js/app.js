@@ -1,4 +1,4 @@
-var currentVersion = '2.12';
+var currentVersion = '3.0';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
 var dateFormat = [
@@ -39,6 +39,37 @@ var dateFormat = [
 	'dddd, MMMM DD, YYYY', // MMMM DD, YYYY
 	'dddd, MMMM-DD-YYYY',  // MMMM-DD-YY
 ];
+
+var options = [ 'shape', 'color', 'number', 'bluetooth', 'battery', 'battery_modality', 'date', 'help_num' ];
+optionsObj = {
+	extend: function(settings){
+		for(var key in settings){
+			this[key] = 0;
+		}
+	},
+	saveOptions(options){
+		var params = {};
+		options.forEach(function(pair){
+			if(this.hasOwnProperty(pair.name)){
+				params[pair.name] = pair.value;
+			}
+		});
+		params.number = params.number ? '1' : '0';
+		params.help_num = params.help_num ? '1' : '0';
+		return params;
+	}
+};
+function saveOptions() {
+	var params = {};
+	$('#config').serializeArray().forEach(function(pair) {
+		params[pair.name] = pair.value;
+	});
+	params['number'] = params['number'] ? '1' : '0';
+	params['help_num'] = params['help_num'] ? '1' : '0';
+
+	return params;
+}
+
 
 $(document).foundation();
 
@@ -96,17 +127,6 @@ function queryString(){
 		}
 	}
 	return getProps;
-}
-
-function saveOptions() {
-	var params = {};
-	$('#config').serializeArray().forEach(function(pair) {
-		params[pair.name] = pair.value;
-	});
-	params['number'] = params['number'] ? '1' : '0';
-	params['help_num'] = params['help_num'] ? '1' : '0';
-
-	return params;
 }
 
 function setProperty(property, value){
@@ -185,6 +205,6 @@ $('.bluetooth,.battery,.battery_modality').click(function(){
 });
 
 $('#b-submit').click(function(){
-	var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+	var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(optionsObj.saveOptions($('#config').serializeArray())));
 	document.location = location;
 });
