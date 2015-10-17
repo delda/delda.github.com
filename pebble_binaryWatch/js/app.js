@@ -41,16 +41,19 @@ var dateFormat = [
 ];
 
 var options = [ 'shape', 'color', 'number', 'bluetooth', 'battery', 'battery_modality', 'date', 'help_num' ];
-optionsObj = {
+var optionsObj = {
 	extend: function(settings){
+		var that = this;
 		for(var key in settings){
-			this[key] = 0;
+			that[settings[key]] = 0;
 		}
+		return that;
 	},
 	saveOptions(options){
 		var params = {};
+		var that = this;
 		options.forEach(function(pair){
-			if(this.hasOwnProperty(pair.name)){
+			if(that.hasOwnProperty(pair.name)){
 				params[pair.name] = pair.value;
 			}
 		});
@@ -59,17 +62,6 @@ optionsObj = {
 		return params;
 	}
 };
-function saveOptions() {
-	var params = {};
-	$('#config').serializeArray().forEach(function(pair) {
-		params[pair.name] = pair.value;
-	});
-	params['number'] = params['number'] ? '1' : '0';
-	params['help_num'] = params['help_num'] ? '1' : '0';
-
-	return params;
-}
-
 
 $(document).foundation();
 
@@ -78,6 +70,7 @@ $(document).ready(function(){
 	// Version controll sign
 	$('h1 .right #linkVersionInformation').text("v"+currentVersion);
 	getProps = queryString();
+	dateSelected = 0;
 	for(var test in getProps){
 		setProperty(test, getProps[test]);
 	}
@@ -111,7 +104,10 @@ $(document).ready(function(){
 function queryString(){
 	var getProps = {};
 	var query = window.location.search.substring(1);
-	var vars = query.split("&");
+	var vars = Array();
+	if(query){
+		vars = query.split("&");
+	}
 	for (var i=0; i<vars.length; i++){
 		var pair = vars[i].split("=");
 		// If first entry with this name
@@ -205,6 +201,6 @@ $('.bluetooth,.battery,.battery_modality').click(function(){
 });
 
 $('#b-submit').click(function(){
-	var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(optionsObj.saveOptions($('#config').serializeArray())));
+	var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(optionsObj.extend(options).saveOptions($('#config').serializeArray())));
 	document.location = location;
 });
