@@ -62,6 +62,24 @@ var optionsObj = {
 		return params;
 	}
 };
+var helper = [
+	['3.2', 'NOV 09, 2015', 'Bug fix: date correction on Chalk'],
+	['3.1', 'NOV 01, 2015', 'Added new feature: enable/disable numerical value for each bit'],
+	['3.0', 'OCT 21, 2015', 'Watch upgrade for Pebble Time Round'],
+	['2.11', 'OCT 05, 2015', 'Added five new shapes'],
+	['2.10', 'SEP 15, 2015', 'Added three new shapes: rectangle, triangle and rhombus'],
+	['2.9', 'SEP 07, 2015', 'Choose the date format between 38 different formats'],
+	['2.8', 'AUG 28, 2015', 'Added battery meter'],
+	['2.7', 'AUG 19, 2015', 'Bluetooth connection notification'],
+	['2.6', 'AUG 12, 2015', 'Added six different patterns color'],
+	['2.5', 'AUG 03, 2015', 'You can add a decimal time on background'],
+	['2.4', 'JUL 22, 2015', 'First color release'],
+	['2.3', 'JUL 16, 2015', 'Added settings communication from smartwatch to smartphone'],
+	['2.2', 'JUL 13, 2015', 'Choose your favourite shape: you can get circle or square'],
+	['2.1', 'JUN 08, 2015', 'Added supports 12/24 hr'],
+	['2.0', 'JUN 05, 2015', 'Upgrade to SDK 3.0'],
+	['1.2', 'MAR 13, 2015', 'First complete release'],
+].forEach(compileHelper);
 
 $(document).foundation();
 
@@ -192,6 +210,18 @@ function versionCompare(version1, version2){
 	}
 }
 
+function compileHelper(changeLog){
+	father = $('#versionInformation > .row :last-child');
+	father = $('#versionInformation');
+	var div1 = document.createElement('div');
+	$(div1).addClass('row delda_modal_version')
+	       .html('<div class="small-12 columns"><div class="left">VERSION '+changeLog[0]+'</div><div class="right">'+changeLog[1]+'</div></div>');
+	var div2 = document.createElement('div');
+	$(div2).addClass('row delda_modal_text')
+	       .html('<div class="small-12 columns">v'+changeLog[0]+'</br>* '+changeLog[2]+'</div></div>');
+	father.append(div1);
+	father.append(div2);
+}
 $('.bluetooth,.battery,.battery_modality').click(function(){
 	var currentId = $(this).attr('id').match('[a-z_]+');
 	$('.'+currentId+'.delda_hover').removeClass('delda_hover');
