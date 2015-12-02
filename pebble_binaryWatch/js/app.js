@@ -1,4 +1,4 @@
-var currentVersion = '3.3';
+var currentVersion = '3.4';
 var phoneVersion = currentVersion;
 var localeFormat = 'en';
 var dateFormat = [
@@ -63,6 +63,8 @@ var optionsObj = {
 	}
 };
 var helper = [
+	['3.4', 'DIC 02, 2015', 'Added five new colors template'],
+	['3.3', 'NOV 10, 2015', 'Interface correction on all three platforms'],
 	['3.2', 'NOV 09, 2015', 'Bug fix: date correction on Chalk'],
 	['3.1', 'NOV 01, 2015', 'Added new feature: enable/disable numerical value for each bit'],
 	['3.0', 'OCT 21, 2015', 'Watch upgrade for Pebble Time Round'],
